@@ -14,6 +14,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import game_tools.Sound;
+
 public class SimonSays extends KeyAdapter {
     HashMap<Integer, String> images = new HashMap<Integer, String>();
     private int imageIndex;
@@ -43,13 +45,16 @@ public class SimonSays extends KeyAdapter {
     @Override
     public void keyPressed(KeyEvent e) {
         // 15. Make a points variable to track the score.
-int points;
-        // 16. If the keyCode matches the imageIndex and "Simon says"
+int points = 0;
+       
+// 16. If the keyCode matches the imageIndex and "Simon says"
+if(e.getKeyCode() == imageIndex) {
+	points += 1;
 
         // 17. Increase the value of score
 
         // 18. Use the Sound.speak method to tell the user they were correct
-
+Sound.speak("You were correct");
         // 19. If the keyCode doesn't match the imageIndex and "Simon didn't
         // say..."
 
@@ -68,6 +73,10 @@ int points;
         // 23. Dispose of the frame
 
         // 24. Call the showImage method to show a new image
+}
+
+	
+
     }
 
     private void showImage() {
